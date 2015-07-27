@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Java Script -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/les3 - Grid System.css" />
+
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Grid System</h2>
+      <p>Chào các bạn! ở bài trước mình đã <a href="http://dinhtrieu.info/gioi-thieu-va-huong-dan-su-dung-bootstrap/">giới thiệu cơ bản về bootstrap</a> và các nhúng bootstrap vào giao diện HTML. Chắc hẳn các bạn còn đang lạ lẫm và đặt ra câu hỏi Grid system là gì? Vậy thì tôi xin mô tả sơ lược qua để các bạn có cái nhìn chung về nó như sau. Grid System là một hệ thống lưới và là một thuật ngữ được dùng trong thiết kế và nó được cấu hình thành 12 cột. Kích thước trong Grid System tính bằng cột, mỗi cột này sẽ chiếm một % nhất định kích thước của layout. Thay vì chỉ định rõ ràng kích thước là 200px, 300px, … Thì giờ chúng ta sẽ dùng đơn vị là cột. Mà % là bao nhiêu thì bootstrap đã tính sẵn cho các bạn rồi.</p>
+      <p>Đây là phần giao diện website được stylesheet bằng grid system. Ở hình này chúng ta dễ dàng nhận ra là giao diện có 3 hàng, hàng thứ nhất có 12 cột chính là lớp col-md-12, hàng thứ hai gồm 3 thành phần như sau:</p>
+      <ul>
+        <li>Phần left có 3 cột chính là lớp col-md-3</li>
+        <li>Phần content có 6 cột  col-md-6</li>
+        <li>Phần right giống phần left cũng có 3 cột col-md-3</li>
+        <li>Phần footer gồm 2 thành phần và mỗi thành phần được chia thành 6 cột col-md-6.</li>
+      </ul>
+      <p>Đoạn code dưới đây mô tả các vị trí trong một website thông thường.</p>
+    </div>
+  </div><!-- end row of 1 -->
+
+  <div class="row grid-demo">
+    <div class="col-md-12">
+      <header>Header (12 colume)</header>
+    </div>
+    <div class="col-md-3">
+      <section>Left menu (3 colume)</section>
+    </div>
+    <div class="col-md-6">
+      <article>Content (6 colume)</article>
+    </div>
+    <div class="col-md-3">
+      <aside>Right (3 colume)</aside>
+    </div>
+    <div class="col-md-6">
+      <footer>Footer (6 colume)</footer>
+    </div>
+    <div class="col-md-6">
+      <footer>Footer (6 colume)</footer>
+    </div>
+  </div><!-- end row of 2-->
+</div><!-- end container -->
+
+<div class="container">
+  <h1>Col-SM (Nhỏ)</h1>
+  <div class="row grid-demo">
+    <div class="col-sm-12"><strong>Col-sm (Small Device):</strong> Đây là class được dùng để định nghĩa cho các loại thiết bị (Tablet) có kích thước lớn hơn 768px:</div>
+    <div class="col-sm-1">Box 1</div>
+    <div class="col-sm-1">Box 2</div>
+    <div class="col-sm-1">Box 3</div>
+    <div class="col-sm-1">Box 4</div>
+    <div class="col-sm-1">Box 5</div>
+    <div class="col-sm-1">Box 6</div>
+    <div class="col-sm-1">Box 7</div>
+    <div class="col-sm-1">Box 8</div>
+    <div class="col-sm-1">Box 9</div>
+    <div class="col-sm-1">Box 10</div>
+    <div class="col-sm-1">Box 11</div>
+    <div class="col-sm-1">Box 12</div> 
+    <div class="col-sm-4">Box 12</div>   
+  </div>
+</div>
+
+<div class="container">
+  <h1>Col-Md (Vừa)</h1>
+  <div class="row grid-demo">
+    <div class="col-md-12"><strong><u>Col-md (Medium Device)</u>:</strong> Đây là class được dùng để định nghĩa các loại màn hình desktop có kích thước lớn hơn 922px, và đây cũng chính là class được khai báo nhiều nhất quá trình xây dựng giao diện website</div>
+    <div class="col-md-1">Box 1</div>
+    <div class="col-md-1">Box 2</div>
+    <div class="col-md-1">Box 3</div>
+    <div class="col-md-1">Box 4</div>
+    <div class="col-md-1">Box 5</div>
+    <div class="col-md-1">Box 6</div>
+    <div class="col-md-1">Box 7</div>
+    <div class="col-md-1">Box 8</div>
+    <div class="col-md-1">Box 9</div>
+    <div class="col-md-1">Box 10</div>
+    <div class="col-md-1">Box 11</div>
+    <div class="col-md-1">Box 12</div>
+    <div class="col-md-4">Box 12</div>
+  </div>
+</div>
+
+<div class="container">
+  <h1>Col-LG (Lớn)</h1>
+  <div class="row grid-demo">
+    <div class="col-lg-12"><strong>Col-lg (Large Device):</strong> Đây là class được dùng để định nghĩa cho các loại màn hình desktop có kích thước lớn hơn 1200px tức là kích thước màn hình lớn cỡ nào nó cũng hỗ trợ được hết</div>
+    <div class="col-lg-1">Box 1</div>
+    <div class="col-lg-1">Box 2</div>
+    <div class="col-lg-1">Box 3</div>
+    <div class="col-lg-1">Box 4</div>
+    <div class="col-lg-1">Box 5</div>
+    <div class="col-lg-1">Box 6</div>
+    <div class="col-lg-1">Box 7</div>
+    <div class="col-lg-1">Box 8</div>
+    <div class="col-lg-1">Box 9</div>
+    <div class="col-lg-1">Box 10</div>
+    <div class="col-lg-1">Box 11</div>
+    <div class="col-lg-1">Box 12</div>
+    <div class="col-lg-4">Box 12</div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <p>Trong grid system thì class col-lg luôn được thể hiện đầu tiên các bạn có thể thử bằng cách copy đoạn code sau , rồi sau đo kẻo nhỏ trình duyệt lại thì thành phần html được định nghĩa nằm trong class col-lg sẽ tự động co giãn.</p>
+
+      <p>Ngoài ra  grid system trong bootstrap còn có một số tính năng như là canh lề trái, phải (offset) , gộp các cột lại với nhau. Các vấn đề này tôi sẽ chia sẽ ở các bài Fixed Layout (Cố định), Fuild Layout(Full Width). Trong bài này tôi chỉ liệt kê một số tính năng mà grid system cung cấp cho chúng ta.
+      2. Lời kết</p>
+
+      <p>Thông qua bài viết này tôi hy vọng các bạn cảm thấy thích bootstrap hơn và bắt đầu đưa nó vào mục tiêu học tập của các bạn. Chúc các bạn thành công!</p>
+    </dvi>
+  </div>
+</div>
+</body>
+</html>
