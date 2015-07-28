@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Java Script -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <style type="text/css">
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      font-family: 16px;
+    }
+    #ntc-content{
+      margin: 1em;
+    }
+    #ntc-content ul li {
+      margin-left: 2em;
+    }
+  </style>
+
+</head>
+<body>
+<!-- <div class="container" style="border: dashed 1px blue;"> -->
+<div class="container">
+  <div class="row grid-demo">
+    <div class="col-md-1"></div>
+    <div class="col-md-10" style="border: dashed 1px #777;">
+    <div id="ntc-content">  
+
+      <p>Khi các bạn tiến hành xây dựng giao diện một website thì form chính là thành phần không thể thiếu đối với website của bạn. Đối với Css thông thường khi stylesheet một form thì chúng ta thường bị mất nhiều thời gian vào các việc như là canh lề cho thẻ label canh chỉnhmargin & padding cho khung form. Nhưng từ khi bootstrap ra đời thì những điều đó không còn đáng lo ngại nửa, vì sao tôi tự tin nói vậy thì các bạn sẽ có câu trả lời sau khi đọc hết bài viết này. Hôm nay chúng ta sẽ tìm hiều về cách tạo form trong bootstrap, bạn sẽ thấy công việc sẽ đơn giản hơn rất nhiều
+
+      <br />Các website thường sử dụng ba kiểu form như là.<br />
+      <ul class="list-group">
+        <li><b>Vertical Form</b> (Form dọc)</li>
+        <li><b>Horizontal Form</b> (Form Ngang)</li>
+        <li><b>Inline Form</b> (Form Thường)</li>
+      </ul>
+      <h3>1. Định dạng Vertical form</h3><br />
+      Đây là một dạng kiểu form phổ biến mà chúng ta thường dùng khi xây dựng giao diện website cho các trang liên hệ, đặt hàng..vvv<br />
+      <img class="aligncenter" width="700" height="191" src="http://i.imgur.com/g24Rlix.png" />
+      </p>
+
+        <div class="row">
+          <h2>Vetical Form</h2>
+          <form>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" placeholder="Email">
+            <div class="from-group">
+              <label>Mật khẩi</label>
+              <input type="password" class="form-control" placeholder="Password" />
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" />Remember</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+
+      <p>Mọi thành phần bên trong form đều được bao quanh bởi cặp thẻ form và bên trong nó là class form-group và bên trong thành phần input được định nghĩa bằng class form-control, class này có tác dụng stylesheet cho thẻ input. Nếu bạn bỏ class này ra thì thẻ input sẽ trở nên giống thẻ input html thông thường không còn hiệu ưng ouline khi click chuột vào nửa.Hầu như mọi thành phần thuộc form html đều phải khải báo class này nếu như bạn xây dựng form bằng bootstrap.<br />
+      <h2>2. Horizontal Form trong bootstrap 3</h2><br />
+
+      Kiểu form này định dạng hơi phức tạp một xíu và nó có kết hợp với Grid system để bố cục kích thước của form và tag label cho hợp lý. Để có thể làm việc tốt với kiểu form này tôi cần các bạn chú ý các class sau.<br/>
+        <ul>
+          <li>control-label (Khai báo class này ở tag label mới có thể gán class col-xs-x vào được)</li>
+          <li>form-horizontal (Định dạng kiểu form ngang)</li>
+          <li>col-xs-offset-2 (Canh lề trái)</li>
+        </ul>
+      Ok, để có cái nhìn trực quan hơn với kiểu form này thì tôi có một ví dụ nhỏ như sau.</p>
+
+      <div class="row">
+        <h2>Horizontal Form</h2>
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label class="control-label col-xs-2">Email :</label>
+            <div class="col-xs-4">
+              <input type="email" class="form-control" Placeholder="Email" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-xs-2">Password :</label>
+            <div class="col-xs-4">
+              <input type="password" class="form-control" Placeholder="Password" />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-4">
+              <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <p>Trong ví dụ này tôi sử dụng định dạng col-xs-10 có nghĩa là phần class hỗ trợ kích thước màn hình nhỏ nhất để minh họa,col-xs-offset-2 giúp chúng ta canh lề trái cho cột.<br />
+      <h2>3. Inline form trong bootstrap 3</h2><br />
+      Đây là kiểu form đơn giản nhất mà các bạn thường gặp trong thiết kế website. Để hiển thị kiểu form inline thì tôi có ví dụ nhỏ để minh họa trực quan hơn là cứ nói suông.</p><br />
+
+        <div class="row">
+            <h2>Inline Form</h2>
+            <form class="form-inline">
+                <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Email">
+                </div>
+                <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Password">
+                </div>
+                <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Đăng Nhập</button>
+                </div>   
+            </form>
+        </div>
+      <br /><p>Kiểu form này khá là đơn giản chỉ cần gán vào tag form class form-inline thì có ngay một form đẹp mắt rồi đấy.<br />
+      <b>Lời kết:</b><br />
+      Form được bootstrap hỗ trợ khá nhiều chứ không hẳn dừng lại ở 3 kiểu tạo form như vậy. Các bạn có thể lên trang chủ bootstrap tìm hiểu thêm về nó, còn bạn nào lười đọc tiếng anh thì chờ bài form nâng cao của tôi nhé hoặc tôi sẽ hướng dẫn trong phần project.</p><br /><br /><br />
+
+    </div><!-- end #ntc-content -->
+    </div>
+    <div class="col-md-1"></div>
+
+</div><!-- End .container -->
+</body>
+</html>
