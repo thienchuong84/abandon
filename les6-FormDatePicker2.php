@@ -74,7 +74,7 @@
             
             <div class="col-md-2"></div>
             <div class="col-md-10">
-              <form class="form-inline" style="margin-top: 50px;" method="post" action="#">
+              <form class="form-inline" style="margin-top: 50px;" method="post" action="#" name="abandon_form" onsubmit="return validateForm()">
                 <div class="form-group">
                   <label for="abandon_date">Date</label>
                   <input type="text" class="form-control" id='ntc_abandon_date' name="ntc_abandon_date" placeholder="mm/dd/yyyy">              
@@ -94,9 +94,9 @@
                 });
 
                 function validateForm() {
-                    var x = document.forms["myForm"]["fname"].value;
+                    var x = document.forms["abandon_form"]["ntc_callerid"].value;
                     if (x == null || x == "") {
-                        alert("Name must be filled out");
+                        alert("CallerID must be filled out");
                         return false;
                     }
                 }                
