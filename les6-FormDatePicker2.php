@@ -81,7 +81,7 @@
                 </div>
                 <div class="form-group">
                   <label for="callerid">CallerID</label>
-                  <input type="text" class="form-control" id="ntc_callerid" name="ntc_callerid">
+                  <input type="text" class="form-control" id="ntc_callerid" name="ntc_callerid" required>
                 </div>
                 <button type="submit" name="submit" class="btn btn-default">Submit</button>
               </form>
