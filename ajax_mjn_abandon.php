@@ -1,10 +1,16 @@
-
 <?php
 include 'includes/functions.php';
 
+// set null for variables
+$d = $abandon_date = $callerid = "";
+
 if(isset($_POST['tmpSubmit1'])){
     
-    if($_POST['tmpDate1'] == ""){
+    // check variables
+    $tmpDate1 = test_input($_POST['tmpDate1']);
+    $tmpCallerid1 = test_input($_POST['tmpCallerid1']);
+    
+    if($tmpDate1 == ""){
         $d = strtotime("yesterday");// echo $d; // value: 1438120800
         $abandon_date = date("Y-m-d", $d); // echo $abandon_date; // value: 2015-07-29
     } else {
@@ -12,10 +18,10 @@ if(isset($_POST['tmpSubmit1'])){
         //$abandon_date = trim(substr($d,6,4).'-'.substr($d,0,2).'-'.substr($d,3,2)); // echo $abandon_date; // value: 2015-07-29 
         
         // define function to use
-        $abandon_date = convertDateAsterisk($_POST['tmpDate1']); // echo $abandon_date;
+        $abandon_date = convertDateAsterisk($tmpDate1); // echo $abandon_date;
     }
     
-    $callerid = $_POST['tmpCallerid1']; // echo $callerid;
+    $callerid = $tmpCallerid1; // echo $callerid;
 }
 ?>
 

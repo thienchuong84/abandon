@@ -7,6 +7,28 @@ function convertDateAsterisk($d) {
     return $date;    
 }
 
+// test input variables
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $dat = htmlspecialchars($data);
+    return $data;
+}
+
+// connect db and close connection
+function db_connect(){
+    // create connection
+    $conn = new mysqli(db_host, db_user, db_pass);
+    
+    // check connection
+    if(mysqli_connect_error()) {
+        die("Database connection fail : ".mysqli_connect_error());
+    }        
+}
+
+function db_close() {
+    $conn -> close();
+}
 
 
 
