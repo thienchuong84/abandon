@@ -10,9 +10,10 @@ $dbname2 = "asterisk";
 $dbname3 = "qstats";
 */
 
-// variables db
+// variables db remote_test@'%' dientu@%123456 asteriskcdrdb qstats
 define ('db_host', '192.168.100.35');
-define ('db_user', '');
-define ('db_pass', '')
+define ('db_user', 'remote_test');
+define ('db_pass', 'dientu@%123456');
+define ('db1', 'asteriskcdrdb');
 
 ?>

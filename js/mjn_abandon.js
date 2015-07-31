@@ -10,7 +10,8 @@ function ajaxSubmit(){
 	} else {
 		$.ajax({
 		method: "POST",
-		url: "ajax_mjn_abandon.php",
+		//url: "ajax_mjn_abandon.php",
+		url: "ajax_mjn_abandon_test.php",
 		data: { tmpDate1: tmpDate, tmpCallerid1: tmpCallerid, tmpSubmit1: tmpSubmit },
 		})
 		.done(function( msg ) {

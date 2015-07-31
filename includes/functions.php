@@ -16,22 +16,42 @@ function test_input($data) {
 }
 
 // connect db and close connection
-function db_connect(){
+function query_abandon($date,$caller){
     // create connection
-    $conn = new mysqli(db_host, db_user, db_pass);
+    $conn = new mysqli(db_host, db_user, db_pass, db1); //echo "connect succesful";
     
     // check connection
     if(mysqli_connect_error()) {
         die("Database connection fail : ".mysqli_connect_error());
-    }        
+    }
+
+    // declare mysql statement, compare date, can use DATE(caldate) LIKE '$abandon_date' | calldate LIKE '$abandon_date %'
+    $sql="
+        SELECT calldate, src, dst, channel, dstchannel, lastapp, lastdata, duration, billsec, disposition FROM asteriskcdrdb
+        WHERE DATE(calldate)='$date' AND src='$caller'
+    ";
+
+    // query result
+    $result = $conn->query($sql);
+
+    // neu la 1 empty array , se xu ly sau
+    // if ($result->num_rows > 0)
+    /* tmp_disable
+    if ($result->num_rows > 0) {
+        // khai bao empty array
+        $tmp_array = array(
+            // query tung row va gan vao mang 
+            while($row = $result->mysqli_fetch_assoc()) {
+                array($row["calldate"],$row["src"],$row["dst"],$row["channel"],$row["dstchannel"],$row["lastapp"],$row["lastdata"],$row["duration"],$row["billsec"],$row["disposition"]);
+            };
+        );
+    }
+    */
+    $result->free();        
+            
+    $conn->close();
+
+    return $tmp_array;
 }
-
-function db_close() {
-    $conn -> close();
-}
-
-
-
-
 
 ?>
