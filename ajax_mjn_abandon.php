@@ -1,5 +1,6 @@
 <?php
 include 'includes/functions.php';
+include 'includes/config.php';
 
 // set null for variables
 $d = $abandon_date = $callerid = "";
@@ -24,7 +25,6 @@ if(isset($_POST['tmpSubmit1'])){
     $callerid = $tmpCallerid1; // echo $callerid;
 }
 ?>
-
 <div class="row">
   <div class="col-md-12">            
     <div class="table-responsive">
@@ -45,16 +45,20 @@ if(isset($_POST['tmpSubmit1'])){
         </thread>
         <tbody>  
           <tr>
-            <td>calldate</td>
-            <td>src</td>
-            <td>dst</td>
-            <td>channel</td>
-            <td>dstchannel</td>
-            <td>lastapp</td>
-            <td>lastdata</td>
-            <td>duration</td>
-            <td>billsec</td>
-            <td>disposition</td>
+            <?php 
+            // have two variables is $abandon_date and $callerid , call query_abandon() function use this 2 variables
+            $tmp_array = query_abandon($abandon_date,$callerid);
+            
+            // use count() to get so hang trong 1 array, dua vao for su dung. VD: count($tmp_array)
+            $arrlength = count($tmp_array);
+
+            for($row=0; $row < $arrlength; $row++){
+                for($col=0; $col<10; $col++){
+                    echo "<td>".$tmp_array[$row][$col]."</td>";                   
+                }
+            }
+            ?>
+
           </tr>      
         </tbody>
       </table>

@@ -3,7 +3,7 @@ include 'includes/functions.php';
 include 'includes/config.php';
 
 // set null for variables
-//$d = $abandon_date = $callerid = "";
+$d = $abandon_date = $callerid = $tmpDate1 = $tmpCallerid1 = "";
 
 if(isset($_POST['tmpSubmit1'])){
     
@@ -94,6 +94,10 @@ if(isset($_POST['tmpSubmit1'])){
                 echo "</tr>";
             }
 
+            mysqli_free_result($result);
+            mysqli_close($conn);
+
+            unset($d, $abandon_date, $callerid, $tmpDate1, $tmpCallerid1);
             ?>
                 
         </tbody>
