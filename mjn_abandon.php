@@ -15,6 +15,13 @@
       #content h1 {
         color: #7961AA;
       }
+      .selected {
+        border-color: red;
+      }
+      #position_that_show_process {
+        text-align: center;
+        color: red;
+      }
     </style>
     <link href="bootstrap-datepicker/google-code-prettify/prettify.css" rel="stylesheet">
     <link href="bootstrap-datepicker/docs.css" rel="stylesheet">
@@ -78,6 +85,7 @@
                 });                             
             </script>
         </div>
+        <div class="row" id="position_that_show_process"></div>
         <div class="row" id="position_that_you_show"></div>
         
       </div><!-- end .col-md-10 -->

@@ -31,15 +31,16 @@ function ajaxSubmit(){
 	    var tmpCallerid = $("#ntc_callerid").val();
 	    var tmpSubmit = $("#submit").val();
 
-	    $('#position_that_you_show').html('Dang xu ly ...');
+	    $('#position_that_show_process').html('Processing ...');
 
 		$.ajax({
 		method: "POST",
 		url: "ajax_mjn_abandon_test.php",
 		data: { tmpDate1: tmpDate, tmpCallerid1: tmpCallerid, tmpSubmit1: tmpSubmit },
 		})
-		.done(function( msg ) {
+		.done(function( msg ) {			
 			$('#position_that_you_show').html(msg);
+			$('#position_that_show_process').html('');
 		});			
 	}
 }
@@ -49,7 +50,8 @@ function validateAbandonForm() {
 	$("#ntc_callerid").css('border-color','');
 
 	if(!$("#ntc_callerid").val()) {
-		$("#ntc_callerid").css('border-color','red');
+		//$("#ntc_callerid").css('border-color','red');
+		$("#ntc_callerid").addClass("selected");
 		alert("Please fill out Callerid");
 		valid = false;
 	} else {
