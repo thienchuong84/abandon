@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -44,11 +52,11 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand navbar-brand" href="#">MJN</a>
+          <a class="brand navbar-brand" href="#">MJN Project</a>
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Abandon</a></li>
+            <li><a href="#" taget="_blank"><?php if(isset($_SESSION['user'])){ echo "Welcome ".$_SESSION["user"]; } ?></a></li>
             <!--
-            <li><a href="#" taget="_blank">Read the Docs</a></li>
             <li><a href="#" taget="_blank">GitHub</a></li>
             -->
           </ul>
@@ -64,7 +72,7 @@
         </div>
         
         <div class"row">    
-            <div class="col-md-2"></div>
+            <div class="col-md-1"></div>
             <div class="col-md-10">
               <form class="form-inline" style="margin-top: 50px; margin-bottom: 2em;" method="post" action="#" name="abandon_form" >
                 <div class="form-group">

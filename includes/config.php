@@ -15,5 +15,6 @@ define ('db_host', '192.168.100.35');
 define ('db_user', 'remote_test');
 define ('db_pass', 'dientu@%123456');
 define ('db1', 'asteriskcdrdb');
+define ('db3', 'code');
 
 ?>
