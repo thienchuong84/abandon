@@ -27,26 +27,26 @@
     <div class="container">
       <div class="navbar-header">
         <a class="brand navbar-brand" href="#">MJN Project</a>
-      </div><!-- end .navbar-header -->
-      <div>
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Abandon</a></li>
-          <!-- <li><a href="#" taget="_blank">Welcome admin</a></li> -->
-        </ul>
+      </div><!-- end navbar-header -->
 
-        <ul class="nav navbar-nav navbar-right">
-          <li role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" taget="_blank" role="button" aria-haspopup="true" aria-expanded="false">
-              Signed in as <strong><?php echo $_SESSION["user"] ?></strong><span class="caret"> <!-- Indicates dropdown functionality (will reverse automatically in dropup menus) -->
-            </a>
-            <ul class="dropdown-menu navbar-inverse">
-              <li><a href="mjn_abandon_setting_test.php" taget="_blank" style="color: white">Setting</a></li>
-              <li><a href="logout_unset.php" taget="_blank" style="color: white">Logout</a></li>
-            </ul>
-        </ul>
-      </div></div></div>
-    </div><!-- end .navbar .container -->
-  </nav>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Abandon</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expand="false">
+            Signed in as <strong><?php echo $_SESSION["user"]; ?></strong> <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu navbar-inverse">
+            <li><a href="mjn_abandon_setting_test.php.php" style="color: white">Settings</a></li>
+            <li><a href="logout_unset.php" style="color: white">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- .nav .container -->
+  </nav>  
+  
 
   <div class="container-fluid">
     <div class="row">
