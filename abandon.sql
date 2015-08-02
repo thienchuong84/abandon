@@ -9,5 +9,6 @@ CREATE TABLE `user` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 
 GRANT ALL PRIVILEGES ON code.* TO remote_test@'%' IDENTIFIED BY 'dientu@%123456';
-
-INSERT  INTO `user`(`idUser`,`user`,`pass`,`fullname`) VALUE (1,`admin`,`admin`,`Adminsitrator`);
+GRANT ALL PRIVILEGES ON code.* TO remote_test@'localhost' IDENTIFIED BY 'dientu@%123456';
+INSERT  INTO `user`(idUser,user,pass,fullname) VALUE (1,"admin","admin","Adminsitrator");
+INSERT  INTO `user`(`user`,`pass`,`fullname`) VALUE ('chuong','chuong','Thien Chuong');
