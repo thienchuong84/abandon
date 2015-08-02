@@ -33,7 +33,7 @@
     mysqli_close($conn);
   }
 
-  if (isset($_SESSION[id])) {
+  if (isset($_SESSION["id"])) {
     header("Location:mjn_abandon.php");
   }
 
@@ -60,49 +60,58 @@
     border: 1px dashed #999;
   }
   </style>
+
+  <script type="text/javascript">
+    function js_validateLogin() {
+      var usr = $("#userName").val();
+      var pwd = $("#password").val();
+      if(usr=='' || pwd=='') {
+        alert("Please fill out the form");
+      }
+    }
+  </script>
 </head>
 <body>
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10">
-        <div class="row">
-          <p><h3 class="text-center text-danger" style="height: 30px"><?php if(isset($msg)) {echo $msg; } ?></h3></p>
-        </div> <!-- end row 1 -->
+      <div style="height: 100px">
+        <?php if($msg!="") { ?>
+        <div class="col-md-4 col-md-push-4 alert alert-danger" style="margin-top: 2em">
+          <p class="text-center">
+            <a style="font-weight: bold; color: red"><?php echo $msg; ?></a>
+          </p>
+        </div>   
+        <?php } ?>
+      </div>
+    </div>
 
-        <div class="row">
-          <div class="col-md-3"></div>
+    <div class="row">
+      <!-- <div class="col-md-6 bg-primary"> -->
+      <div class="col-md-6 col-md-push-3" style="border: 2px solid #999">
+        <h3 class="text-center text-info">User Login Details</h3>
 
-          <!-- <div class="col-md-6 bg-primary"> -->
-          <div class="col-md-6" style="border: 2px solid #999">
-            <h3 class="text-center text-info">User Login Details</h3>
-
-            <form class="form-horizontal" role="form" method="post" action="">
-              <div class="form-group">
-                <label class="control-label col-sm-2" for="userName">Username</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="userName" placeholder="Enter Username" name="userName" />
-                </div>
-              </div><!-- end form-group 1 -->
-              <div class="form-group">
-                <label class="control-label col-sm-2" for="pwd">Password</label>
-                <div class="col-sm-10">
-                  <input type="password" class="form-control" id="password" placeholder="Enter Password" name="password" />
-                </div>
-              </div><!-- end form-group 2 -->
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" name="submit" class="btn btn-default" value="Submit" >Submit</button>
-                </div>
-              </div><!-- end form-group 3 -->
-            </form><!-- end form -->
-          </div>
-
-          <div class="col-md-3"></div>
-        </div><!-- end row 2 -->        
-      </div><!-- end div col-md-10 -->
-      <div class="col-md-1"></div>
+        <form class="form-horizontal" role="form" method="post" action="" onsubmit="return js_validateLogin()">
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="userName">Username</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="userName" placeholder="Enter Username" name="userName" />
+            </div>
+          </div><!-- end form-group 1 -->
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="password" placeholder="Enter Password" name="password" />
+            </div>
+          </div><!-- end form-group 2 -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" name="submit" class="btn btn-default" value="Submit" >Submit</button>
+            </div>
+          </div><!-- end form-group 3 -->
+        </form><!-- end form -->
+      </div>
+    </div><!-- end row 2 -->        
   </div><!-- end .container-fluid -->
 
 </body>
