@@ -1,5 +1,8 @@
 <?php
   session_start();
+  if(!isset($_SESSION["id"])) {
+    header("Location:login_test_alert.php");
+  }
 ?>
 
 <!DOCTYPE html>
@@ -20,38 +23,37 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <div class="navbar-header"><a class="brand navbar-brand" href="#">MJN Project</a></div>
-        <div>
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Abandon</a></li>
-            <!-- <li><a href="#" taget="_blank">Welcome admin</a></li> -->
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li role="presentation" class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" taget="_blank" role="button" aria-haspopup="true" aria-expanded="false">
-                Welcome to <strong><?php echo $_SESSION["user"] ?></strong><span class="caret"> <!-- Indicates dropdown functionality (will reverse automatically in dropup menus) -->
-              </a>
-              <ul class="dropdown-menu navbar-inverse">
-                <li><a href="mjn_abandon_setting_test.php" taget="_blank" style="color: white">Setting</a></li>
-                <li><a href="logout_unset.php" taget="_blank" style="color: white">Logout</a></li>
-              </ul>
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="brand navbar-brand" href="#">MJN Project</a>
+      </div><!-- end .navbar-header -->
+      <div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Abandon</a></li>
+          <!-- <li><a href="#" taget="_blank">Welcome admin</a></li> -->
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" taget="_blank" role="button" aria-haspopup="true" aria-expanded="false">
+              Signed in as <strong><?php echo $_SESSION["user"] ?></strong><span class="caret"> <!-- Indicates dropdown functionality (will reverse automatically in dropup menus) -->
+            </a>
+            <ul class="dropdown-menu navbar-inverse">
+              <li><a href="mjn_abandon_setting_test.php" taget="_blank" style="color: white">Setting</a></li>
+              <li><a href="logout_unset.php" taget="_blank" style="color: white">Logout</a></li>
             </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+        </ul>
+      </div></div></div>
+    </div><!-- end .navbar .container -->
   </nav>
 
   <div class="container-fluid">
     <div class="row">
 
-    </di>
+    </div>
     <div class="row">
-      <div class="col-md-10 col-md-push-1">
+      <div class="col-md-10 col-md-push-1" style="border: 1px dashed #999">
         
         <div class="row">
           <dic class="col-md-10 col-md-push-1">
