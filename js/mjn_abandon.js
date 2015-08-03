@@ -22,6 +22,7 @@ function ajaxSubmit(){
 }
 */
 
+// used in : mjn_abandon.php when user click button submit
 function ajaxSubmit(){
 	var valid;
 	valid = validateAbandonForm();	
@@ -45,6 +46,7 @@ function ajaxSubmit(){
 	}
 }
 
+// used in mjn_abandon.php : check input value
 function validateAbandonForm() {
 	var valid = true;
 	$("#ntc_callerid").css('border-color','');
@@ -63,24 +65,4 @@ function validateAbandonForm() {
 	}
 
 	return valid;
-}
-
-
-// for bootstrap datepicker
-var page = {bootstrap:3};
-function swap_bs(){
-  var bscss = $('#bs-css'),
-      bsdpcss = $('#bsdp-css');
-  if (page.bootstrap == 3){
-    bscss.prop('href', 'bootstrap-datepicker/css/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css');
-    bsdpcss.prop('href', 'bootstrap-datepicker/css/datepicker.css');
-    page.bootstrap = 2;
-    $(page).trigger('change:bootstrap', 2)
-  }
-  else{
-    bscss.prop('href', 'css/bootstrap.min.css');
-    bsdpcss.prop('href', 'bootstrap-datepicker/css/datepicker3.css');
-    page.bootstrap = 3;
-    $(page).trigger('change:bootstrap', 3)
-  }
 }

@@ -46,7 +46,7 @@ if(!isset($_SESSION["id"])) {
         </div><!-- end navbar-header -->
 
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Abandon</a></li>
+          <li class="active"><a href="mjn_abandon.php">Abandon</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
@@ -55,7 +55,7 @@ if(!isset($_SESSION["id"])) {
               Signed in as <strong><?php echo $_SESSION["user"]; ?></strong> <span class="caret"></span>
             </a>
             <ul class="dropdown-menu navbar-inverse">
-              <li><a href="mjn_abandon_settings.php" style="color: white">Settings</a></li>
+              <li><a href="mjn_abandon_setting.php" style="color: white">Settings</a></li>
               <li><a href="logout.php" style="color: white">Logout</a></li>
             </ul>
           </li>
@@ -64,37 +64,23 @@ if(!isset($_SESSION["id"])) {
     </nav>
 
     <div class="container" id="content">
+      
       <div class="row text-center">
-        <h1>Abandon System</h1>           
+        <h1>Settings</h1>           
       </div>
-          
-      <div class"row">
-        <div class="col-md-9 col-md-push-3">
-          <form class="form-inline" style="margin-top: 50px; margin-bottom: 2em;" method="post" action="#" name="abandon_form" >
-            <div class="form-group">
-              <label for="abandon_date">Date</label>
-              <input type="text" class="form-control" id='ntc_abandon_date' name="ntc_abandon_date" placeholder="mm/dd/yyyy">              
-            </div>
-            <div class="form-group">
-              <label for="callerid">CallerID</label>
-              <input type="text" class="form-control" id="ntc_callerid" name="ntc_callerid">
-            </div>
-            <button type="button" name="submit" class="btn btn-default" id="submit" onclick="ajaxSubmit()">Submit</button>
-          </form>
-        </div><!-- end .col .form -->
 
-        <script type="text/javascript">
-            $(function () {
-                $('#ntc_abandon_date').datepicker();
-            });                             
-        </script>
-        <div class="row">
-          <div class="col-md-4 col-md-push-4" id="position_that_show_process"></div>
+      <div class="row">
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#nav_changePass" aria-control="nav_changePass" role="tab" data-toggle="tab">Change Password</a></li>
+          <li role="presentation"><a href="#nav_manageUsers" aria-control="nav_manageUsers" role="tab" data-toggle="tab">Manage Users</a></li>
+        </ul>
+
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane fade in active" id="nav_changePass"><?php include 'abandon_settings_changePass.php'; ?></div>
+          <div role="tabpanel" class="tab-pane fade" id="nav_manageUsers" role="tab" data-toggle="tab"><?php include 'abandon_settings_manageUsers.php'; ?></div>
         </div>
       </div>
-      <div class="clearfix visible-md"></div>
-      
-      <div class="row text-center" id="position_that_you_show"></div>
+
     </div><!-- end .container -->
 
   </body>

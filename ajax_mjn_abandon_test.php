@@ -1,6 +1,7 @@
 <?php
-include 'includes/functions.php';
 include 'includes/config.php';
+include 'includes/functions.php';
+
 
 // set null for variables
 $d = $abandon_date = $callerid = $tmpDate1 = $tmpCallerid1 = "";
