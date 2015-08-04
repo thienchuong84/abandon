@@ -20,11 +20,12 @@
     $sql = "SELECT idUser, user, pass, fullname FROM user WHERE user='".$ntc_user."' and pass='".$ntc_pass."' limit 1";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    echo $row["user"];
+    //echo $row["user"];
 
     if(is_array($row)) {
         $_SESSION["id"] = $row["idUser"];
         $_SESSION["user"] = $row["user"];
+        $_SESSION["idRole"] = $row["idRole"];
         //$msg = "Welcome to ".$_SESSION["user"]; //test
     } else {
         $msg = "Invalid Username or Password";

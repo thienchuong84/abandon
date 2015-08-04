@@ -12,3 +12,52 @@ GRANT ALL PRIVILEGES ON code.* TO remote_test@'%' IDENTIFIED BY 'dientu@%123456'
 GRANT ALL PRIVILEGES ON code.* TO remote_test@'localhost' IDENTIFIED BY 'dientu@%123456';
 INSERT  INTO `user`(idUser,user,pass,fullname) VALUE (1,"admin","admin","Adminsitrator");
 INSERT  INTO `user`(`user`,`pass`,`fullname`) VALUE ('chuong','chuong','Thien Chuong');
+
+######################################### Update on Aug 04,2015 : 
+# Go to code db, and edit table user
+Alter table `code`.`user`   
+  change `user` `user` varchar(100) CHARSET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  change `pass` `pass` varchar(100) CHARSET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  add column `idRole` int(11) NOT NULL after `fullname`
+
+# and now table of user :
+CREATE TABLE `user` (
+  `idUser` int(11) NOT NULL auto_increment,
+  `user` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `pass` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `fullname` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `idRole` int(11) NOT NULL,
+  PRIMARY KEY  (`idUser`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
+
+# create table roles , with 1 is admin, 2 is users
+CREATE TABLE `roles` (
+  `idRole` int(11) NOT NULL auto_increment,
+  `nameRole` varchar(50) collate utf8_unicode_ci default NULL,
+  PRIMARY KEY  (`idRole`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
+
+INSERT INTO `code`.`roles` (`nameRole`) VALUE ('admin');
+INSERT INTO `code`.`roles`(`nameRole`) VALUE ('user');
+
+# create navtab_menu
+CREATE TABLE `navtab_menu` (
+  `idMenu` int(11) NOT NULL auto_increment,
+  `inPage` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `href` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `id` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `title` varchar(100) collate utf8_unicode_ci NOT NULL,
+  PRIMARY KEY  (`idMenu`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `navtab_menu`(`inPage`,`href`,`id`,`title`) VALUE ("mjn_abandon_settings.php","abandon_settings_manageUsers.php","nav_manageUsers","Manage Users");
+
+# create roles_navtab to link roles table and navtab_menu that help we know what permission admin will have
+# noted: with link table, it will not need primary key and auto_increment
+CREATE TABLE `roles_navtab` (
+  `idRole` int(11) NOT NULL,
+  `idMenu` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+   # with idRole 1 is admin, it will have menu is 1, 2 or 3 on navtab_menu table
+INSERT INTO `code`.`roles_navtab`(`idRole`,`idMenu`) VALUE (1,1);
