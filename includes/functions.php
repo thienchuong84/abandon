@@ -18,8 +18,10 @@ function test_input($data) {
 
 // checkUser() function : query to db and authenticated.
 // used in: login.php
+// update Aug 05, 2015 : function này chưa sử dụng ở trang nào
+/*
 function checkUser($user,$pass) {
-    $conn = mysqli(db_host, db_user, db_name, db3);
+    $conn = mysqli(db_host, db_user, db_pass, db3);
 
     $sql = "SELECT idUser, user, pass, fullname FROM user
             WHERE user='".$user."' and pass='".$pass."' limit 1";
@@ -32,6 +34,49 @@ function checkUser($user,$pass) {
         $_SESSION["id"] = $row["idUser"];
         $_SESSION["user"] = $row["user"];
     }
+}*/
+
+// update Aug 05,2015 : function have_navtab_menu($id_of_user) to check what role user have. And query and load tab in setting of user
+// Function này là 1 function rất đặc biệt, vì nó kết nối db và trả về 1 multi array
+function have_navtab_menu($id_of_user) {
+    $conn = mysqli_connect(db_host, db_user, db_pass, db3);
+
+    if(mysqli_connect_error()){
+        echo "Failed to connect Database : ".mysqli_connect_error();
+    }
+
+    $sql = "SELECT      navtab_menu.* 
+            FROM        users
+            INNER JOIN  roles_navtab    ON users.idRole = roles_navtab.idRole
+            INNER JOIN  navtab_menu ON roles_navtab.idMenu = navtab_menu.idMenu
+            WHERE       idUser='{$id_of_user}'";
+
+    $result = mysqli_query($conn, $sql);
+    $count = count($result);
+    $menu_detail = array();
+    for($row=0; $row<$count; $row++){
+        $row_of_array = mysqli_fetch_row($result);
+        for($col=0; $col<5; $col++){
+            $menu_detail[$row][] = $row_of_array[$col];
+        }
+    }
+    mysqli_free_result($result);
+    mysqli_close($conn);
+    return $menu_detail;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>

@@ -17,7 +17,7 @@
       echo "Failed to connect to db code : ".$mysqi_connect_error();
     }
     //$sql = "SELECT idUser, user, pass, fullname FROM user WHERE user='".$ntc_user."' and pass='".$ntc_pass."' limit 1";
-    $sql = "SELECT idUser, user, pass, fullname FROM user WHERE user='".$ntc_user."' and pass='".$ntc_pass."' limit 1";
+    $sql = "SELECT idUser, user, pass, fullname FROM users WHERE user='".$ntc_user."' and pass='".$ntc_pass."' limit 1";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
     //echo $row["user"];

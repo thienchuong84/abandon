@@ -36,7 +36,25 @@ for ($i=0; $i < count($foo); $i++){
 	echo "</ul>";
 }
 
+/* The two ways of iterating through arrays (http://www.hackingwithphp.com/5/3/0/the-two-ways-of-iterating-through-arrays)
 
+    for ($i = 0; $i < count($array); ++$i) {
+        print $array[$i];
+    }
+
+    foreach($array as $val) {
+        print $val;
+    }
+
+    foreach ($array as $key => $val) {
+        print "$key = $val\n";
+    }
+
+    while (list($var, $val) = each($array)) {
+        print "$var is $val\n";
+    }
+
+*/
 ?>
 
 

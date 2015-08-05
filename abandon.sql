@@ -1,6 +1,6 @@
 
 
-CREATE TABLE `user` (
+CREATE TABLE `users` (
   `idUser` int(11) NOT NULL auto_increment,
   `user` varchar(50) collate utf8_unicode_ci NOT NULL,
   `pass` varchar(50) collate utf8_unicode_ci NOT NULL,
@@ -10,18 +10,18 @@ CREATE TABLE `user` (
 
 GRANT ALL PRIVILEGES ON code.* TO remote_test@'%' IDENTIFIED BY 'dientu@%123456';
 GRANT ALL PRIVILEGES ON code.* TO remote_test@'localhost' IDENTIFIED BY 'dientu@%123456';
-INSERT  INTO `user`(idUser,user,pass,fullname) VALUE (1,"admin","admin","Adminsitrator");
-INSERT  INTO `user`(`user`,`pass`,`fullname`) VALUE ('chuong','chuong','Thien Chuong');
+INSERT  INTO `users`(idUser,user,pass,fullname) VALUE (1,"admin","admin","Adminsitrator");
+INSERT  INTO `users`(`user`,`pass`,`fullname`) VALUE ('chuong','chuong','Thien Chuong');
 
 ######################################### Update on Aug 04,2015 : 
 # Go to code db, and edit table user
-Alter table `code`.`user`   
+Alter table `code`.`users`   
   change `user` `user` varchar(100) CHARSET utf8 COLLATE utf8_unicode_ci NOT NULL,
   change `pass` `pass` varchar(100) CHARSET utf8 COLLATE utf8_unicode_ci NOT NULL,
   add column `idRole` int(11) NOT NULL after `fullname`
 
 # and now table of user :
-CREATE TABLE `user` (
+CREATE TABLE `users` (
   `idUser` int(11) NOT NULL auto_increment,
   `user` varchar(100) collate utf8_unicode_ci NOT NULL,
   `pass` varchar(100) collate utf8_unicode_ci NOT NULL,
@@ -61,3 +61,14 @@ CREATE TABLE `roles_navtab` (
 
    # with idRole 1 is admin, it will have menu is 1, 2 or 3 on navtab_menu table
 INSERT INTO `code`.`roles_navtab`(`idRole`,`idMenu`) VALUE (1,1);
+
+
+
+# Aug 05, 2015 , insert nhinguyen to users AND query navtab_menu.* from idUser to get all navtab that user have
+INSERT INTO `code`.`users`(`user`,`pass`,`fullname`,`idRole`) VALUE ("nhinguyen","123456","Nguyễn Ngọc Yến Nhi",2);
+
+SELECT   navtab_menu.* 
+FROM   users
+INNER JOIN roles_navtab ON users.idRole = roles_navtab.idRole
+INNER JOIN navtab_menu ON roles_navtab.idMenu = navtab_menu.idMenu
+WHERE   idUser='1'
