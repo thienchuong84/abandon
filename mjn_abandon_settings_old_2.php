@@ -67,6 +67,11 @@ include 'includes/functions.php';
     </nav>
 
     <div class="container" id="content">
+      
+      <div class="row text-center">
+        <h1>Settings</h1>           
+      </div>
+
       <div class="row">
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="active"><a href="#nav_changePass" aria-control="nav_changePass" role="tab" data-toggle="tab">Change Password</a></li>

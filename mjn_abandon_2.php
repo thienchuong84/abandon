@@ -24,7 +24,7 @@ if(!isset($_SESSION["id"])) {
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/datepicker.css" rel="stylesheet">
 		<style>
-			#content h2 {
+			#content h1 {
                 color: #8ac007;
 			  color: #7961AA;
         color: #428BCA;
@@ -40,9 +40,14 @@ if(!isset($_SESSION["id"])) {
 	</head>
 
 	<body>
-
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h2 style="color: #428BCA;">Pivotal Edge</h2>
+        </div>
+      </div>
+    </div>
 		
-    <!--<nav class="navbar navbar-inverse navbar-static-top">-->
     <nav class="navbar navbar-inverse navbar-static-top">
       <div class="container">
         <div class="navbar-header">
@@ -68,51 +73,34 @@ if(!isset($_SESSION["id"])) {
     </nav>
 
     <div class="container" id="content">
-      <div class="row">
-        <div class="jumbotron">
-          <h2 class="text-center">Abandon Detail</h2><div class="row">
-          <div class="col-md-9 col-md-push-3">
-
-          </div><!-- end .col .form --></div>
-        </div>     
-      </div>
-
-      <div class="row">
-        <div class="panel panel-primary">
-          <div class="panel-heading clearfix">
-            <div class="panel-title pull-right">
-              <form class="form-inline" method="post" action="#" name="abandon_form" >
-                <div class="form-group">
-                  <label for="abandon_date">Date</label>
-                  <input type="text" class="form-control" id='ntc_abandon_date' name="ntc_abandon_date" placeholder="mm/dd/yyyy">              
-                </div>
-                <div class="form-group">
-                  <label for="callerid">CallerID</label>
-                  <input type="text" class="form-control" id="ntc_callerid" name="ntc_callerid">
-                </div>
-                <button type="button" name="submit" class="btn btn-default" id="submit" onclick="ajaxSubmit()">Submit</button>
-              </form>
-            </div><!-- end .panel-title -->
-          </div>
-          <div class="panel-body">
-            <div class="row">
-              <div class="col-md-4 col-md-push-4" id="position_that_show_process"></div>
-              <!-- <div class="col-md-10 col-md-push-1"><div class="row text-center" id="position_that_you_show"></div></div>-->
-              <div id="position_that_you_show"></div>
+      <div class="jumbotron">
+        <h1 class="text-center">Abandon Detail</h1><div class="row">
+        <div class="col-md-9 col-md-push-3">
+          <form class="form-inline" method="post" action="#" name="abandon_form" >
+            <div class="form-group">
+              <label for="abandon_date">Date</label>
+              <input type="text" class="form-control" id='ntc_abandon_date' name="ntc_abandon_date" placeholder="mm/dd/yyyy">              
             </div>
-          </div>
-        </div>
-      </div>
+            <div class="form-group">
+              <label for="callerid">CallerID</label>
+              <input type="text" class="form-control" id="ntc_callerid" name="ntc_callerid">
+            </div>
+            <button type="button" name="submit" class="btn btn-default" id="submit" onclick="ajaxSubmit()">Submit</button>
+          </form>
+        </div><!-- end .col .form --></div>
+      </div>     
 
       <script type="text/javascript">
           $(function () {
               $('#ntc_abandon_date').datepicker();
           });                             
       </script>
-
+      <div class="row">
+        <div class="col-md-4 col-md-push-4" id="position_that_show_process"></div>
+      </div>
 
       
-      
+      <div class="row text-center" id="position_that_you_show"></div>
     </div><!-- end .container -->
 
   </body>

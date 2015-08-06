@@ -40,7 +40,13 @@ if(!isset($_SESSION["id"])) {
 	</head>
 
 	<body>
-
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h2 style="color: #428BCA;">Pivotal Edge</h2>
+        </div>
+      </div>
+    </div>
 		
     <!--<nav class="navbar navbar-inverse navbar-static-top">-->
     <nav class="navbar navbar-inverse navbar-static-top">
