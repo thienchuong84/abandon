@@ -96,8 +96,12 @@ if(!isset($_SESSION["id"])) {
           </div>
           <div class="panel-body">
             <div class="row">
-              <div class="col-md-4 col-md-push-4" id="position_that_show_process"></div>
-              <!-- <div class="col-md-10 col-md-push-1"><div class="row text-center" id="position_that_you_show"></div></div>-->
+              <div class="col-md-4"><strong style="text-decoration: underline;">Abandon detail list:</strong></div>
+              <div class="col-md-4" id="position_that_show_process"></div>
+              <!-- <div class="col-md-10 col-md-push-1"><div class="row text-center" id="position_that_you_show"></div></div>-->              
+            </div><!-- .row2 -->
+            <div class="row"><div class="col-md-10 col-md-push-1"><hr style="border: 1px dashed #428BCA" /></div></div>
+            <div class="row">
               <div id="position_that_you_show"></div>
             </div>
           </div>
@@ -113,7 +117,7 @@ if(!isset($_SESSION["id"])) {
 
       
       
-    </div><!-- end .container -->
+    </div><!-- end .container // 28/7 0984399452 -->
 
   </body>
 </html>

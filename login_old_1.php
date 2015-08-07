@@ -48,19 +48,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>User Login Details</title>
-
+  <script src="jquery/1.11.3/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
-  <link href="css/login.css" rel="stylesheet">  
-
-  <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-  <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-  <script src="js/login/ie-emulation-modes-warning.js"></script>
-
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <script src="js/login/ie10-viewport-bug-workaround.js"></script>
+  <style type="text/css">
+  .row-centered {
+    text-align: center;
+    padding: 2em;
+    font-weight: bold;
+    color: red;
+    border: 1px dashed #999;
+  }
+  </style>
 
   <script type="text/javascript">
     function js_validateLogin() {
@@ -71,15 +72,10 @@
       }
     }
   </script>
-</head> <!-- end head -->
-
-
-
-
+</head>
 <body>
 
-  <div class="container">
-
+  <div class="container-fluid">
     <div class="row">
       <div style="height: 100px">
         <?php if($msg!="") { ?>
@@ -91,26 +87,34 @@
         <?php } ?>
       </div>
     </div>
- 
+
+    <div class="row">
+      <!-- <div class="col-md-6 bg-primary"> -->
+      <div class="col-md-6 col-md-push-3" style="border: 2px solid #999">
+        <h3 class="text-center text-info">User Login Details</h3>
+
+        <form class="form-horizontal" role="form" method="post" action="" onsubmit="return js_validateLogin()">
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="userName">Username</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="userName" placeholder="Enter Username" name="userName" />
+            </div>
+          </div><!-- end form-group 1 -->
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="password" placeholder="Enter Password" name="password" />
+            </div>
+          </div><!-- end form-group 2 -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" name="submit" class="btn btn-default" value="Submit" >Submit</button>
+            </div>
+          </div><!-- end form-group 3 -->
+        </form><!-- end form -->
+      </div>
+    </div><!-- end row 2 -->        
   </div><!-- end .container-fluid -->
 
-  <div class="container">
-
-    <form class="form-signin" role="form" method="post" action="" onsubmit="return js_validateLogin()">
-      <h2 class="form-signin-heading">Please sign in</h2>
-      <input type="text" class="form-control" id="userName" placeholder="Username" name="userName" required autofocus>
-      <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
-      <label class="checkbox">
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    </form>
-
-  </div> <!-- /container -->
-
-
-
-  <script src="jquery/1.11.3/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
