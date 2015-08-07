@@ -64,19 +64,3 @@ function have_navtab_menu($id_of_user) {
     mysqli_close($conn);
     return $menu_detail;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>

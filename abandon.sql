@@ -72,3 +72,25 @@ FROM   users
 INNER JOIN roles_navtab ON users.idRole = roles_navtab.idRole
 INNER JOIN navtab_menu ON roles_navtab.idMenu = navtab_menu.idMenu
 WHERE   idUser='1'
+
+
+# Aug07, 2015, create two table : navbar_menu and user_has_navbar to query navbar that user have.
+# it's differece with navtab_menu because user will have role id, group id will have navtab
+# with navtab : isUser -> idRole -> idNavtab
+# with navbar : idUser -> idNavbar (n <-> n)
+
+CREATE TABLE `navbar_menu` (
+  `idNavbar` int(11) NOT NULL auto_increment,
+  `href` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `title` varchar(100) collate utf8_unicode_ci NOT NULL,
+  PRIMARY KEY  (`idNavbar`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `user_has_navbar` (
+  `idUser` int(11) NOT NULL,
+  `idNavbar` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `code`.`navbar_menu`(`idNavbar`,`href`,`title`) VALUE (1,"mjn_abandon.php","Abandon");
+INSERT INTO `code`.`user_has_navbar`(`idUser`,`id`) VALUE (1,1);
+INSERT INTO `code`.`user_has_navbar`(`idUser`,`id`) VALUE (1,2);

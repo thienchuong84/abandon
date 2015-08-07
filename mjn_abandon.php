@@ -40,14 +40,13 @@ if(!isset($_SESSION["id"])) {
 	</head>
 
 	<body>
-
 		
-    <!--<nav class="navbar navbar-inverse navbar-static-top">-->
+    <!--<nav class="navbar navbar-inverse navbar-static-top">
     <nav class="navbar navbar-inverse navbar-static-top">
       <div class="container">
         <div class="navbar-header">
           <a class="brand navbar-brand" href="#">MJN Project</a>
-        </div><!-- end navbar-header -->
+        </div>
 
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Abandon</a></li>
@@ -66,6 +65,8 @@ if(!isset($_SESSION["id"])) {
         </ul>
       </div>
     </nav>
+    -->
+    <?php include 'inc_navbar.php'; ?>
 
     <div class="container" id="content">
       <div class="row">
