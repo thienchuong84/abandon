@@ -8,9 +8,16 @@
       <a class="brand navbar-brand" href="mjn.php">MJN Project</a>
     </div><!-- end navbar-header -->
 
+
+    <?php // if isset($_SESSION['navbar']) -> Load navbar for user
+    //if(isset($_SESSION['navbar']) && $_SESSION['navbar'][0][0]!="") { 
+    if(isset($_SESSION['navbar'])) { ?>
     <ul class="nav navbar-nav">      
       <li class="active"><a href="mjn_abandon.php">Abandon</a></li>
     </ul>
+    <?php } ?>
+
+
 
     <?php // if isset($_SESSION) -> show "Sign in as USER" , else show "Sign in" link to Login page
     if(isset($_SESSION['id'])) {   ?>

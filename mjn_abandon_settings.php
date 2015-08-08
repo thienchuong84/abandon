@@ -111,7 +111,7 @@ include 'includes/func_mysql.php';
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="active"><a href="#nav_changePass" aria-control="nav_changePass" role="tab" data-toggle="tab">Change Password</a></li>
           <?php
-            $conn = Getconnection(db_host, db_user, db_pass, db3);
+            $conn = getConnection(db_host, db_user, db_pass, db3);
     
             $sql = "SELECT      navtab_menu.* 
             FROM        users
@@ -119,7 +119,7 @@ include 'includes/func_mysql.php';
             INNER JOIN  navtab_menu ON roles_navtab.idMenu = navtab_menu.idMenu
             WHERE       idUser='{$_SESSION["id"]}'";
 
-            $menu = have_navbar_menu($sql, $conn);
+            $menu = getArray($conn, $sql);
 
             
             if($menu[0][0]!="") { 

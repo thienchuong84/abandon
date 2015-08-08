@@ -72,9 +72,11 @@ if(!isset($_SESSION["id"])) {
       <div class="row">
         <div class="jumbotron">
           <h2 class="text-center">Abandon Detail</h2><div class="row">
-          <div class="col-md-9 col-md-push-3">
-
-          </div><!-- end .col .form --></div>
+          <!--<p>
+            <?php if(isset($_SESSION['navbar'])) {
+              var_dump($_SESSION['navbar']);echo "<br />";var_dump($_SESSION['id']);echo "<br />";var_dump($_SESSION['user']);
+            } ?>
+          </p>-->
         </div>     
       </div>
 

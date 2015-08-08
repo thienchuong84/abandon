@@ -17,29 +17,13 @@
     $sql = "SELECT idUser, user, pass, fullname FROM users WHERE user='".$ntc_user."' and pass='".$ntc_pass."' limit 1";
 
     $user = getArray($conn, $sql);
-    //$user = getArray_foreach($conn, $sql);
-    //$user = getArray_while($conn, $sql);
-    //if($user[0][0]!=""){    // dùng điều kiện này bị sai, hàm getarray() nếu ko có query được kết quả sẽ trả về false, dùng if($user) để xét nó có true ko
-    if($user) {
+    if($user[0][0]!=""){
       $_SESSION["id"] = $user[0][0];
       $_SESSION["user"] = $user[0][1];
-      //$msg = var_dump($user);
+      $_SESSION["idRole"] = $user[0][4];
     } else {
         $msg = "Invalid Username or Password";
     }
-  }
-
-  if(isset($_SESSION['id'])) {
-
-    $conn = getConnection(db_host, db_user, db_pass, db3);
-    $sql =  "SELECT navbar_menu.*
-            FROM users
-            INNER JOIN user_has_navbar ON users.idUser = user_has_navbar.idUser
-            INNER JOIN navbar_menu ON user_has_navbar.idNavbar = navbar_menu.idNavbar
-            WHERE users.idUser='".$_SESSION['id']."'";  
-
-    $_SESSION['navbar'] = getArray($conn, $sql);
-    //var_dump($_SESSION['navbar']);  //test array return
   }
 
   if (isset($_SESSION["id"])) {
